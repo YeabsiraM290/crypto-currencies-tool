@@ -1,0 +1,45 @@
+body{
+
+    background-color: #fcfcfc;
+}
+
+.search{
+
+    width: 40rem !important;
+    margin-left: 4rem;
+
+}
+
+.serBtn{
+
+    border-color: rgb(45, 40, 71);
+    width: 8rem !important;
+    color: white;
+}
+
+.navbar{
+    background-image: linear-gradient(to right, #01050e , #112952);
+}
+
+.nav-link{
+
+    color: white !important;
+}
+
+.navbar-brand{
+
+    color: white !important;
+}
+
+.card{
+
+    border: none;
+    color: black;
+    margin: 0rem 0.6rem;
+}
+
+.mainCoins{
+    
+    padding: 1rem !important;
+}
+
