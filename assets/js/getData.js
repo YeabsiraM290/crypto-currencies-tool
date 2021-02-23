@@ -1,3 +1,4 @@
+//Getting necessaru html tags
 let btc = document.querySelector('.btc');
 let eth = document.querySelector('.eth');
 let ltc = document.querySelector('.ltc');
@@ -5,6 +6,7 @@ let ada = document.querySelector('.ada');
 
 useData();
 
+//defining fetch function
 async function getPrice(){
 
         let response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
@@ -14,7 +16,7 @@ async function getPrice(){
         return data;
 }
 
-
+//defining function to consume data
 function useData(){
 
    
@@ -48,7 +50,10 @@ function useData(){
 
             else if(coin.symbol == 'ada'){
 
-                ada.innerHTML = `  Price: ${coin.current_price}$ <br>
+                ada.innerHTML =
+                
+                
+                `  Price: ${coin.current_price}$ <br>
                 24H: ${coin.market_cap_change_percentage_24h} <br>
                 Market Cap: ${coin.market_cap}`
               
