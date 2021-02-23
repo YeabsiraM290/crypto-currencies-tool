@@ -15,3 +15,56 @@ async function getPrice(){
 }
 
 
+function useData(){
+
+   
+    getPrice().then(function(coinList) {
+        
+        coinList.forEach(function(coin) {
+
+            if(coin.symbol == 'btc'){
+
+                btc.innerHTML = `  Price: ${coin.current_price}$ <br>
+                24H: ${coin.market_cap_change_percentage_24h} <br>
+                Market Cap: ${coin.market_cap}`
+              
+            }
+
+            else if(coin.symbol == 'eth'){
+
+                eth.innerHTML = `  Price: ${coin.current_price}$ <br>
+                24H: ${coin.market_cap_change_percentage_24h} <br>
+                Market Cap: ${coin.market_cap}`
+              
+            }
+
+            else if(coin.symbol == 'ltc'){
+
+                ltc.innerHTML = `  Price: ${coin.current_price}$ <br>
+                24H: ${coin.market_cap_change_percentage_24h} <br>
+                Market Cap: ${coin.market_cap}`
+              
+            }
+
+            else if(coin.symbol == 'ada'){
+
+                ada.innerHTML = `  Price: ${coin.current_price}$ <br>
+                24H: ${coin.market_cap_change_percentage_24h} <br>
+                Market Cap: ${coin.market_cap}`
+              
+            }
+
+
+            });
+
+ 
+        })
+
+        .catch(function(err) {
+
+            console.log(err)
+
+        });
+
+}
+
