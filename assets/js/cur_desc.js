@@ -25,3 +25,15 @@ const curr_desc_img=document.getElementById('midea_2_id')
 // 
 const coin_id="ethereum"
 // 
+
+function date_provier(){
+    console.log(coin_date_.value)
+    const year=coin_date_.value.slice(0,4)
+    const month=coin_date_.value.slice(4,8)
+    const day=coin_date_.value.slice(8,10)
+    const date= day+month+year
+    console.log(date)
+    return date
+    
+
+}
