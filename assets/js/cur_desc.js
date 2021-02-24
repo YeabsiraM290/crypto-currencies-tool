@@ -45,3 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // table_fech();
     
 });
+
+function curr_date_value(){
+    
+    fetch(`https://api.coingecko.com/api/v3/coins/${coin_id}/history?date=${date_provier()}`)
+    .then(function(res){
+        return res.json();
+    })
+    
+}
