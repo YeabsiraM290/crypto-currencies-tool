@@ -37,3 +37,11 @@ function date_provier(){
     
 
 }
+const coin_date_button=document.getElementById('date_button')
+coin_date_button.addEventListener("click",curr_date_value)
+document.addEventListener("DOMContentLoaded", () => {
+    coingeko_check();
+    
+    // table_fech();
+    
+});
