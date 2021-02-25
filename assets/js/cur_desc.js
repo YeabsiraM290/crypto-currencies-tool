@@ -52,5 +52,27 @@ function curr_date_value(){
     .then(function(res){
         return res.json();
     })
-    
+    .then(function(coin_id){
+        // console.log(coin_id.market_data.current_price)
+        const coin_date_desc=coin_id.market_data.current_price
+        const keys=Object.values(coin_date_desc)
+        console.log(keys)
+        for(index=0;index<keys.length;index++){
+            
+            const p=document.createElement('li')
+            p.innerHTML+=keys[index]
+            console.log(p)
+            date_table.append(p)
+
+          
+
+        }
+        console.log(coin_date_desc)
+
+    })
+    .catch(function(err) {
+
+        console.log(err)
+
+    });
 }
