@@ -84,8 +84,23 @@ function coingeko_check(){
     .then(function(res){
      return res.json();
     })
-    
+    .then(function(coin_id){
+        // console.log(coin_id)
 
-   
-    
-}
+        // inserting image in to the label
+        bitcoin_img.src=coin_id.image.large
+        // console.log(bitcoin_img)
+
+        // inserting the the crypto-description
+        description.innerHTML=coin_id.description.en
+        
+        
+        coin_desc1.innerHTML=`market cap :- Rank #${coin_id.market_cap_rank}`
+        coin_desc2.href=coin_id.links.repos_url.github[0]
+        coin_desc2.innerHTML=`Git-Hub: ${coin_id.links.repos_url.github[0]}`
+        coin_desc9.innerHTML=  `hashing_algorithm: ${coin_id.hashing_algorithm}`
+        // the left div
+        coin_desc3.innerHTML=`coingecko_score<br> <strong>${coin_id.coingecko_score}</strong>`
+        coin_desc4.innerHTML=`developer_score <br> <strong>${coin_id.developer_score}</strong>`
+        coin_desc5.innerHTML=`community_score <br> <strong>${coin_id.community_score}</strong>`
+    }
