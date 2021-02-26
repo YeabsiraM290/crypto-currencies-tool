@@ -1,3 +1,4 @@
+
 var ctx = document.getElementById('myChart').getContext('2d');
 const date_table=document.querySelector('table')
 
@@ -26,6 +27,7 @@ const curr_desc_img=document.getElementById('midea_2_id')
 const coin_id="ethereum"
 // 
 
+// buttons
 function date_provier(){
     console.log(coin_date_.value)
     const year=coin_date_.value.slice(0,4)
@@ -45,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // table_fech();
     
 });
-
 function curr_date_value(){
     
     fetch(`https://api.coingecko.com/api/v3/coins/${coin_id}/history?date=${date_provier()}`)
@@ -53,7 +54,7 @@ function curr_date_value(){
         return res.json();
     })
     .then(function(coin_id){
-        // console.log(coin_id.market_data.current_price)
+        
         const coin_date_desc=coin_id.market_data.current_price
         const keys=Object.values(coin_date_desc)
         console.log(keys)
@@ -103,10 +104,12 @@ function coingeko_check(){
         coin_desc3.innerHTML=`coingecko_score<br> <strong>${coin_id.coingecko_score}</strong>`
         coin_desc4.innerHTML=`developer_score <br> <strong>${coin_id.developer_score}</strong>`
         coin_desc5.innerHTML=`community_score <br> <strong>${coin_id.community_score}</strong>`
-        oin_desc6.innerHTML=`price_change_24h <br> <strong>${coin_id.market_data.price_change_24h}</strong>`
+
+        // the right div
+        coin_desc6.innerHTML=`price_change_24h <br> <strong>${coin_id.market_data.price_change_24h}</strong>`
         coin_desc7.innerHTML=`price_change_percentage_24h <br> <strong>${coin_id.market_data.price_change_percentage_24h}</strong>`
         coin_desc8.innerHTML=`price_change_percentage_7d <br> <strong>${coin_id.market_data.price_change_percentage_7d}</strong>`
-    
+        
         const market=coin_id.market_data.price_change_24h_in_currency;
         // adding the graph
         var chart = new Chart(ctx, {
@@ -130,6 +133,7 @@ function coingeko_check(){
     
         });
 
+
         console.log(coin_desc6)
         // coin_desc2.innerHTML=`market_cap_rank${markets[0].market_cap_rank}`
         // bcoin_desc3.innerHTML=`last_updated${markets[0].last_updated}`
@@ -139,3 +143,29 @@ function coingeko_check(){
     curr_desc_img.append(bitcoin_img)
     curr_desc_img.append(coin_desc1,coin_desc2,coin_desc9)
     curr_desc_img.append(description)
+    
+    // right_desc_aside image
+    
+    contentdiv_1.append(coin_desc3,coin_desc4,coin_desc5)
+    contentdiv_2.append(coin_desc6,coin_desc7,coin_desc8)
+   
+    
+
+
+        
+        
+        
+        
+
+    })
+    .catch(function(err) {
+
+        console.log(err)
+
+    });
+    
+
+
+   
+    
+}
