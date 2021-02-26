@@ -129,3 +129,13 @@ function coingeko_check(){
             // end
     
         });
+
+        console.log(coin_desc6)
+        // coin_desc2.innerHTML=`market_cap_rank${markets[0].market_cap_rank}`
+        // bcoin_desc3.innerHTML=`last_updated${markets[0].last_updated}`
+        // coin_desc4.innerHTML=`ath_change_percentage${markets[0].ath_change_percentage}`
+
+        // main_desc_under_the image
+    curr_desc_img.append(bitcoin_img)
+    curr_desc_img.append(coin_desc1,coin_desc2,coin_desc9)
+    curr_desc_img.append(description)
