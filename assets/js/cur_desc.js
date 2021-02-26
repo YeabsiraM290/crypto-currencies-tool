@@ -106,4 +106,26 @@ function coingeko_check(){
         oin_desc6.innerHTML=`price_change_24h <br> <strong>${coin_id.market_data.price_change_24h}</strong>`
         coin_desc7.innerHTML=`price_change_percentage_24h <br> <strong>${coin_id.market_data.price_change_percentage_24h}</strong>`
         coin_desc8.innerHTML=`price_change_percentage_7d <br> <strong>${coin_id.market_data.price_change_percentage_7d}</strong>`
-    }
+    
+        const market=coin_id.market_data.price_change_24h_in_currency;
+        // adding the graph
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+        
+            // The data for our dataset
+            data: {
+                labels: ['aed', 'ars', 'aud', 'bch', 'bdt', 'bhd', 'bmd','bnb','brl','btc','btc','cad'],
+                datasets: [{
+                    label: 'price_change_percentage_1h_in_currency',
+                    Color: '#322525',
+                    borderColor: '#322525',
+                    data: [ market.aed,market.ars,market.aud, market.bch,-market.bdt,market.bhd,market.bmd,market.bnb,market.brl,market.btc,market.cad,market.chf]
+                }]
+            },
+        
+            // Configuration options go here
+            options: {}
+            // end
+    
+        });
