@@ -103,4 +103,7 @@ function coingeko_check(){
         coin_desc3.innerHTML=`coingecko_score<br> <strong>${coin_id.coingecko_score}</strong>`
         coin_desc4.innerHTML=`developer_score <br> <strong>${coin_id.developer_score}</strong>`
         coin_desc5.innerHTML=`community_score <br> <strong>${coin_id.community_score}</strong>`
+        oin_desc6.innerHTML=`price_change_24h <br> <strong>${coin_id.market_data.price_change_24h}</strong>`
+        coin_desc7.innerHTML=`price_change_percentage_24h <br> <strong>${coin_id.market_data.price_change_percentage_24h}</strong>`
+        coin_desc8.innerHTML=`price_change_percentage_7d <br> <strong>${coin_id.market_data.price_change_percentage_7d}</strong>`
     }
