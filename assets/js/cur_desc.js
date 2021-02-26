@@ -76,3 +76,16 @@ function curr_date_value(){
 
     });
 }
+
+function coingeko_check(){
+    // coin will set by coin_id
+    
+    fetch(`https://api.coingecko.com/api/v3/coins/${coin_id}`)
+    .then(function(res){
+     return res.json();
+    })
+    
+
+   
+    
+}
