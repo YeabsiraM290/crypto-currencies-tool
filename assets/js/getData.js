@@ -3,6 +3,11 @@ let btc = document.querySelector('.btc');
 let eth = document.querySelector('.eth');
 let ltc = document.querySelector('.ltc');
 let ada = document.querySelector('.ada');
+let tabel = document.querySelector('.tabelBody');
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
 
 useData();
 
