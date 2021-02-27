@@ -9,3 +9,10 @@
     
     padding: 1rem !important;
 }
+
+.tabel{
+
+    border-radius: 1rem;
+    border: 1px #e7e7e7 solid !important;
+    padding: 10px;
+}
