@@ -10,6 +10,7 @@ $(document).ready(function() {
 } );
 
 useData();
+createTabel();
 
 //defining fetch function
 async function getPrice(){
@@ -76,5 +77,35 @@ function useData(){
 
         });
 
+}
+
+function createTabel(){
+
+    getPrice().then(function(coinList){
+
+        let outPut="";
+
+        coinList.forEach(function(coin){
+
+        outPut+=`
+        <a href="index.html"> <tr>
+            <td><i class="fas fa-thumbtack mr-3"></i>${coin.market_cap_rank}<img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.id}</td>
+           <td>${coin.symbol}</td>
+            <td>${coin.current_price}</td>
+            <td>${coin.price_change_24h}</td>
+            <td>${coin.low_24h}</td>
+            <td>${coin.market_cap}</td>
+        </tr></a>`
+    });
+    tabel.innerHTML=outPut;
+
+})
+
+.catch(function(err) {
+
+    console.log(err)
+
+});
+    
 }
 
