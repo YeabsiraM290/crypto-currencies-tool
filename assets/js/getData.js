@@ -52,6 +52,45 @@ function addToDatabase(newCoin)
     localStorage.setItem('coins', JSON.stringify(listofCoin));
 }
 
+function loadfromDB()
+{
+    let listofTasks;
+    if(localStorage.getItem('coins') == null)
+    {
+        false
+    }
+    else
+    {
+        listofTasks = JSON.parse(localStorage.getItem('coins'));
+        return listofTasks; 
+    }
+   
+}
+
+function unPin(e){
+
+    console.log(e)
+    removefromDB(e)
+}
+
+
+
+function removefromDB(coin) {
+
+    let listofCoins;
+    if (localStorage.getItem('coins') == null) {
+        listofCoins = [];
+    } else {
+        listofCoins = JSON.parse(localStorage.getItem('coins'));
+    }
+    listofCoins[0].forEach(function(task, index) {
+        console.log(task)
+        if (coin.textContent.trim() === task.trim())
+        listofCoins[0].splice(index, 1);
+    });
+    localStorage.setItem('coins', JSON.stringify(listofCoins));
+
+}
 
 
 async function getPrice(){
