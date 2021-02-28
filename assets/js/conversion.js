@@ -84,3 +84,72 @@ function setTrending(){
         });
 
 }
+
+function createCoinList(){
+
+    getCoinList().then(function(coinList) {
+        let outPut = "";
+        coinList.forEach(function(coin) {
+
+            if(coin.id!=""){ outPut+=` <option value=${coin.id}>${coin.name}</option>`}
+           
+            });
+
+            convertedOptions.innerHTML = outPut;
+
+        })
+
+        .catch(function(err) {
+
+            console.log(err)
+
+        });
+
+        getSupportedCoin().then(function(ScoinList) {
+            let outPut = "";
+            ScoinList.forEach(function(Scoin) {
+    
+                outPut+=` <option value=${Scoin}>${Scoin}</option>`
+               
+                });
+    
+                convertedToOptions.innerHTML = outPut;
+            })
+    
+            .catch(function(err) {
+    
+                console.log(err)
+    
+            });
+}
+
+convertBtn.addEventListener('click',convert);
+
+function convert(){
+
+    if(convertedValue.value){
+
+        convertedValue.style.borderColor = "#ced4da"
+
+        getConverted(convertedOptions.value,convertedToOptions.value).then(function(ConvertedCoin) {
+
+            let result = Object.values(Object.values(ConvertedCoin)[0])[0] * convertedValue.value
+   
+            convertedResult.value = result;
+                
+            })
+    
+            .catch(function(err) {
+    
+                console.log(err)
+    
+            });
+        
+    }
+
+    else{
+
+        convertedValue.style.borderColor = "red"
+    }
+
+}
