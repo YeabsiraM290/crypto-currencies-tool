@@ -2,11 +2,13 @@ let tabel = document.querySelector('.tabelBody');
 
 
 let coinContainer = document.querySelector('.insideCon');
+
+
 useData();
 createTabel();
 
-//defining fetch function
-let anyinDb= loadfromDB();
+
+ let anyinDb= loadfromDB();
 if(!anyinDb){
     addToDatabase(['btc','eth','usdt','bnb'])
     anyinDb=loadfromDB();
@@ -52,6 +54,7 @@ function addToDatabase(newCoin)
     localStorage.setItem('coins', JSON.stringify(listofCoin));
 }
 
+
 function loadfromDB()
 {
     let listofTasks;
@@ -93,17 +96,29 @@ function removefromDB(coin) {
 }
 
 
+
+//defining fetch function
 async function getPrice(){
 
-        let response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+    let response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
 
-        let data = await response.json();
-    
-        return data;
+    let data = await response.json();
+
+    return data;
+}
+
+async function getTabelData(){
+
+    let response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+
+    let data = await response.json();
+
+    return data;
 }
 
 //defining function to consume data
-function useData(){ 
+
+function useData(){
 
    
     getPrice().then(function(coinList) {
@@ -156,6 +171,7 @@ function useData(){
 
 }
 
+
 function createTabel(){
 
     getPrice().then(function(coinList){
@@ -166,7 +182,7 @@ function createTabel(){
         coinList.forEach(function(coin){
             counter+=1
         outPut+=`
-      <tr>
+      <tr> 
             <td onClick=addToDB("${coin.symbol}")><i class="fas fa-thumbtack"></i> ${counter}</td>
             <td><img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.name}</td>
            <td>${coin.symbol}</td>
@@ -193,4 +209,4 @@ function createTabel(){
 });
     
 }
-
+    
