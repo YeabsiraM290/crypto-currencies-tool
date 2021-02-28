@@ -1,14 +1,59 @@
-//Getting necessaru html tags
-let btc = document.querySelector('.btc');
-let eth = document.querySelector('.eth');
-let ltc = document.querySelector('.ltc');
-let ada = document.querySelector('.ada');
 let tabel = document.querySelector('.tabelBody');
 
+
+let coinContainer = document.querySelector('.insideCon');
 useData();
 createTabel();
 
 //defining fetch function
+let anyinDb= loadfromDB();
+if(!anyinDb){
+    addToDatabase(['btc','eth','usdt','bnb'])
+    anyinDb=loadfromDB();
+}
+
+else{
+
+    
+}
+
+function addToDB(coin){
+
+    let coins = loadfromDB();
+   
+
+    if(!coins){
+        coins = [coin]
+        addToDatabase(coin)
+     }
+    else{
+        coins = coins[0]
+        coins.push(coin);
+        addToDatabase(coins);
+    }
+}
+
+
+
+
+// Add to LocalStorage function declaration 
+function addToDatabase(newCoin)
+{
+   let listofCoin;
+   if(localStorage.getItem('coins') == null)
+   {
+    listofCoin = [];
+   }
+   else
+   {
+    listofCoin = JSON.parse(localStorage.getItem('coins'));
+   }
+   listofCoin.push(newCoin);
+    localStorage.setItem('coins', JSON.stringify(listofCoin));
+}
+
+
+
 async function getPrice(){
 
         let response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
@@ -19,7 +64,7 @@ async function getPrice(){
 }
 
 //defining function to consume data
-function useData(){
+function useData(){     
 
    
     getPrice().then(function(coinList) {
