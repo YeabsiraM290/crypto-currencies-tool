@@ -9,3 +9,33 @@ async function getExchanges(){
 
     return data;
 }
+
+function createExchangeList(){
+
+    getExchanges().then(function(exchanges) {
+        let outPut = "";
+        exchanges.forEach(function(exchange) {
+      outPut+=`
+      <a href="${exchange.url}">
+      <div class="row platRow mb-1">
+
+      <div class="col-4 mt-4"><img src="${exchange.image}" height=50></div>
+      
+      <div class="col-4 mt-4"><b>Name</b>: ${exchange.name}</div>
+       
+      <div class="col-4 mt-4"><b>ID</b>:  ${exchange.id}</div>
+      </div></a>`
+           
+            });
+
+            container.innerHTML = outPut;
+
+        })
+
+        .catch(function(err) {
+
+            console.log(err)
+
+        });
+
+}
