@@ -80,18 +80,22 @@ function createTabel(){
     getPrice().then(function(coinList){
 
         let outPut="";
+        let counter=0;
 
         coinList.forEach(function(coin){
-
+            console.log(counter)
+            counter+=1
         outPut+=`
-        <a href="index.html"> <tr>
-            <td>${coin.market_cap_rank}<img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.id}</td>
+      <tr>
+            <td>${counter}</td>
+            <td><img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.name}</td>
            <td>${coin.symbol}</td>
             <td>${coin.current_price}</td>
             <td>${coin.price_change_24h}</td>
             <td>${coin.low_24h}</td>
             <td>${coin.market_cap}</td>
-        </tr></a>`
+        </tr>`
+        
     });
     tabel.innerHTML=outPut;
 
