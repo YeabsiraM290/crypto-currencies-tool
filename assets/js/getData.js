@@ -5,10 +5,6 @@ let ltc = document.querySelector('.ltc');
 let ada = document.querySelector('.ada');
 let tabel = document.querySelector('.tabelBody');
 
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-
 useData();
 createTabel();
 
@@ -89,7 +85,7 @@ function createTabel(){
 
         outPut+=`
         <a href="index.html"> <tr>
-            <td><i class="fas fa-thumbtack mr-3"></i>${coin.market_cap_rank}<img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.id}</td>
+            <td>${coin.market_cap_rank}<img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.id}</td>
            <td>${coin.symbol}</td>
             <td>${coin.current_price}</td>
             <td>${coin.price_change_24h}</td>
@@ -98,6 +94,11 @@ function createTabel(){
         </tr></a>`
     });
     tabel.innerHTML=outPut;
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+    
 
 })
 
