@@ -103,51 +103,48 @@ async function getPrice(){
 }
 
 //defining function to consume data
-function useData(){     
+function useData(){ 
 
    
     getPrice().then(function(coinList) {
-        
+
+        let outPut = "";
+        let count = 0;
+
         coinList.forEach(function(coin) {
-
-            if(coin.symbol == 'btc'){
-
-                btc.innerHTML = `  Price: ${coin.current_price}$ <br>
-                24H: ${coin.market_cap_change_percentage_24h} <br>
-                Market Cap: ${coin.market_cap}`
+            let ar = anyinDb[0]
+            
+                if(coin.symbol == ar[count]){
               
-            }
-
-            else if(coin.symbol == 'eth'){
-
-                eth.innerHTML = `  Price: ${coin.current_price}$ <br>
-                24H: ${coin.market_cap_change_percentage_24h} <br>
-                Market Cap: ${coin.market_cap}`
-              
-            }
-
-            else if(coin.symbol == 'ltc'){
-
-                ltc.innerHTML = `  Price: ${coin.current_price}$ <br>
-                24H: ${coin.market_cap_change_percentage_24h} <br>
-                Market Cap: ${coin.market_cap}`
-              
-            }
-
-            else if(coin.symbol == 'ada'){
-
-                ada.innerHTML =
+                    console.log(ar)
+                    outPut+= `    <div class="row">
+                    <div class="col-12 mainCoins">
+                    
+                      <div class="card">
+                        <img class="card-img-top" src="${coin.image}" width = 300 height= 300 alt="">
+                        <div class="card-body">
+                          <h1 class="card-title">${coin.name} (${coin.symbol})<i style="font-size: 1.4rem; color:grey;" onClick=unPin("${coin.symbol}") class="fas fa-minus-circle ml-5 unpin"></i></h1>
+                          <p class="card-text btc">
+                            Price: ${coin.current_price}$ <br>
+                            24H: ${coin.market_cap_change_percentage_24h} <br>
+                            Market Cap: ${coin.market_cap}
+                          </p>
+                          <a href="cur_desc.html?id=${coin.id}">VIEW MORE 
+                            <span><i class="fas fa-long-arrow-alt-right"></i></span>
+                          </a>
+                        </div>
+                       </div>
+                     
+                    </div>
+                    </div>`
+                    count+=1
                 
-                
-                `  Price: ${coin.current_price}$ <br>
-                24H: ${coin.market_cap_change_percentage_24h} <br>
-                Market Cap: ${coin.market_cap}`
-              
-            }
-
-
+                }
+               
+       
             });
-
+            
+            coinContainer.innerHTML = outPut;
  
         })
 
