@@ -86,7 +86,7 @@ function createTabel(){
             counter+=1
         outPut+=`
       <tr>
-            <td>${counter}</td>
+            <td onClick=addToDB("${coin.symbol}")><i class="fas fa-thumbtack"></i> ${counter}</td>
             <td><img class="ml-3 mr-3" src="${coin.image}" width=20px height=20px">${coin.name}</td>
            <td>${coin.symbol}</td>
             <td>${coin.current_price}</td>
