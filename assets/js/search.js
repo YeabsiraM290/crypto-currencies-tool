@@ -37,3 +37,88 @@ function fillList(){
 
         });
 }
+
+//runs when anything written in search bar
+inputBox.onkeyup = (e)=>{
+
+    let userData = e.target.value; 
+    let emptyArray = [];
+
+    if(userData){
+
+        icon.onclick = ()=>{
+
+            url = `cur_desc.html?id=${useData}`;
+            linkTag.href = url;
+            linkTag.click();
+        }
+
+        emptyArray = suggestions.filter((data)=>{
+            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
+        });
+
+        emptyArray = emptyArray.map((data)=>{
+            return data = '<li>'+ data +'</li>';
+        });
+
+        searchWrapper.classList.add("active"); 
+        showSuggestions(emptyArray);
+        let allList = suggBox.querySelectorAll("li");
+
+        for (let i = 0; i < allList.length; i++) {
+
+            allList[i].setAttribute("onclick", "select(this)");
+        }
+    }else{
+
+        searchWrapper.classList.remove("active"); 
+    }
+}
+
+//to make suggested li clickable 
+function select(element){
+
+    let selectData = element.textContent;
+    inputBox.value = selectData;
+
+    icon.onclick = ()=>{
+
+        url = `cur_desc.html?id=${selectData}`;
+        linkTag.href = url;
+        linkTag.id = "1"
+        linkTag.click();
+    }
+    searchWrapper.classList.remove("active");
+}
+
+//fills suggbox with suggestion if any
+function showSuggestions(list){
+
+    let listData = "No result";
+
+    if(!list.length){
+
+        userValue = inputBox.value;
+
+        if(userValue in suggestions){
+
+            listData = '<li>'+ userValue +'</li>'
+            url = `cur_desc.html?id=${selectData}`;
+            linkTag.href = url;
+            linkTag.target = "submit"
+        }
+
+        else{
+
+            url = `index.html`;
+            linkTag.href = url
+            linkTag.target = "";
+        }
+        
+    }else{
+
+        listData = list.join('');
+    }
+
+    suggBox.innerHTML = listData;
+}

@@ -83,7 +83,6 @@ function createTabel(){
         let counter=0;
 
         coinList.forEach(function(coin){
-            console.log(counter)
             counter+=1
         outPut+=`
       <tr>
