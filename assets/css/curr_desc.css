@@ -1,3 +1,8 @@
+
+.media{
+    padding-top: 2rem;
+    margin-left: 4rem;
+}
 body{
 
     background-color: #fcfcfc;
@@ -86,12 +91,13 @@ body{
 }
 #description_content{
     border-radius: 1rem;
-    margin-left: 10rem;
-    margin-top: 20rem;
-    width: 1000px;
-    height: 100px;
-    background-color: rgb(184, 184, 184);
-    padding: 6rem;
+    margin-left: 1rem;
+    padding-right: 3rem;
+   
+   
+    height: 400px;
+    background-color: rgb(238, 235, 235);
+    
     overflow: hidden;
     overflow-y: scroll;
     overflow-x: scroll;
@@ -102,7 +108,7 @@ body{
     align-items: center;
     border:solid;
 }
-.date_based{
+/* .date_based{
     margin-left: 10rem;
     height: 10rem;
     width: 20rem;
@@ -111,4 +117,4 @@ body{
     overflow-y: scroll;
     overflow-x: scroll; 
 
-}
+} */

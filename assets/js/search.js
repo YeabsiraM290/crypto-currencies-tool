@@ -83,16 +83,17 @@ function select(element){
 
     icon.onclick = ()=>{
 
-        url = `cur_desc.html?id=${selectData}`;
+        url = `cur_desc.html?id=${selectData.toLocaleLowerCase}`;
         linkTag.href = url;
         linkTag.id = "1"
         linkTag.click();
     }
     searchWrapper.classList.remove("active");
+    return selectData;
 }
 
 //fills suggbox with suggestion if any
-function showSuggestions(list){
+ function showSuggestions(list){
 
     let listData = "No result";
 
