@@ -48,7 +48,7 @@ inputBox.onkeyup = (e)=>{
 
         icon.onclick = ()=>{
 
-            url = `cur_desc.html?id=${useData}`;
+            url = `cur_desc.html?id=${useData.toLocaleLowerCase()}`;
             linkTag.href = url;
             linkTag.click();
         }
@@ -83,7 +83,7 @@ function select(element){
 
     icon.onclick = ()=>{
 
-        url = `cur_desc.html?id=${selectData.toLocaleLowerCase}`;
+        url = `cur_desc.html?id=${selectData.toLocaleLowerCase()}`;
         linkTag.href = url;
         linkTag.id = "1"
         linkTag.click();
@@ -104,7 +104,7 @@ function select(element){
         if(userValue in suggestions){
 
             listData = '<li>'+ userValue +'</li>'
-            url = `cur_desc.html?id=${selectData}`;
+            url = `cur_desc.html?id=${selectData.toLocaleLowerCase()}`;
             linkTag.href = url;
             linkTag.target = "submit"
         }

@@ -10,7 +10,7 @@ createTabel();
 
  let anyinDb= loadfromDB();
 if(!anyinDb){
-    addToDatabase(['btc','eth','usdt','bnb'])
+    addToDatabase(['btc'])
     anyinDb=loadfromDB();
 }
 
@@ -25,13 +25,15 @@ function addToDB(coin){
    
 
     if(!coins){
-        coins = [coin]
         addToDatabase(coin)
-     }
+        location.reload();
+    }
     else{
+        localStorage.clear();
         coins = coins[0]
         coins.push(coin);
         addToDatabase(coins);
+        location.reload();
     }
 }
 
@@ -70,28 +72,17 @@ function loadfromDB()
    
 }
 
-function unPin(e){
-
-    console.log(e)
-    removefromDB(e)
-}
-
-
 
 function removefromDB(coin) {
 
-    let listofCoins;
-    if (localStorage.getItem('coins') == null) {
-        listofCoins = [];
-    } else {
-        listofCoins = JSON.parse(localStorage.getItem('coins'));
+   let inDB = loadfromDB()[0];
+   var index = inDB.indexOf(`${coin}`);
+    if (index >= 0) {
+    inDB.splice( index, 1 );
     }
-    listofCoins[0].forEach(function(task, index) {
-        console.log(task)
-        if (coin.textContent.trim() === task.trim())
-        listofCoins[0].splice(index, 1);
-    });
-    localStorage.setItem('coins', JSON.stringify(listofCoins));
+    localStorage.clear();
+   addToDatabase(inDB);
+   location.reload();
 
 }
 
@@ -138,7 +129,7 @@ function useData(){
                       <div class="card">
                         <img class="card-img-top" src="${coin.image}" width = 300 height= 300 alt="">
                         <div class="card-body">
-                          <h1 class="card-title">${coin.name} (${coin.symbol})<i style="font-size: 1.4rem; color:grey;" onClick=unPin("${coin.symbol}") class="fas fa-minus-circle ml-5 unpin"></i></h1>
+                          <h1 class="card-title">${coin.name} (${coin.symbol})<i style="font-size: 1.4rem; color:grey;" onClick=removefromDB("${coin.symbol}") class="fas fa-minus-circle ml-5 unpin"></i></h1>
                           <p class="card-text btc">
                             Price: ${coin.current_price}$ <br>
                             24H: ${coin.market_cap_change_percentage_24h} <br>

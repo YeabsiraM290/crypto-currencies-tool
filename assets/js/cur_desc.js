@@ -66,9 +66,7 @@ function curr_date_value(){
     })
     .then(function(coin_id){
          
-        date_based.style.marginLeft="10rem"
-        date_based.style.height="10rem"
-        date_based.style.width="20rem"
+        date_based.style.height="34rem"
         date_based.style.borderRadius="1rem"
         date_based.style.overflow="hidden"
         date_based.style.overflowX="scroll"
@@ -129,7 +127,6 @@ function coingeko_check(){
         p_decription.innerHTML=coin_id.description.en
         description.append(p_decription)
         console.log(p_decription)
-        p_decription.style.fontSize="1.5rem"
         
         
         coin_desc1.innerHTML=`market cap :- Rank #${coin_id.market_cap_rank}`

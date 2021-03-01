@@ -3,101 +3,15 @@
     padding-top: 2rem;
     margin-left: 4rem;
 }
-body{
-
-    background-color: #fcfcfc;
-}
-
-.search{
-
-    width: 40rem !important;
-    margin-left: 4rem;
-
-}
-
-.serBtn{
-
-    border-color: rgb(45, 40, 71);
-    width: 8rem !important;
-    color: white;
-}
-
-.navbar{
-    background-image: linear-gradient(to right, #01050e , #112952);
-}
-
-.nav-link{
-
-    color: white !important;
-}
-
-.navbar-brand{
-
-    color: white !important;
-}
-
-
-
-.card{
-
-    border: none;
-    color: black;
-    margin: 0rem 0.6rem;
-}
-
-.col-6{
-    
-    padding: 1rem !important;
-}
-
-
-.coins{
-
-    border-bottom: 1px rgb(197, 197, 197) solid;
-}
-.first{
-
-    font-weight: bold;
-
-}
-.coinList {
-    background-color: white;
-    padding:0.5rem 1rem;
-    border: 1px white solid;
-    border-radius: 10px;
-    color: black;
-    height:30rem;
-    overflow-y: scroll;
-    overflow-x: scroll;
-  }
-
-.coinConintan{
-
-    border: 1px rgb(172, 168, 168) solid;
-    border-radius: 10px;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    margin-left: 6rem;
-    margin-right: 2rem;
-  }
-
-
-
-
-/*  */
 #right_label_bitcoin{
     border-radius: 2rem;
     margin-top:4rem;
 }
 #description_content{
     border-radius: 1rem;
-    margin-left: 1rem;
-    padding-right: 3rem;
-   
-   
-    height: 400px;
-    background-color: rgb(238, 235, 235);
-    
+    padding: 1rem;
+    font-size: 1rem !important;
+    background-color: rgb(247, 240, 240);
     overflow: hidden;
     overflow-y: scroll;
     overflow-x: scroll;
@@ -108,13 +22,3 @@ body{
     align-items: center;
     border:solid;
 }
-/* .date_based{
-    margin-left: 10rem;
-    height: 10rem;
-    width: 20rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    overflow-y: scroll;
-    overflow-x: scroll; 
-
-} */
