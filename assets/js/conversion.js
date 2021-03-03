@@ -37,7 +37,7 @@ async function getConverted(converted, convertedTo){
 
 }
 
-async function getTrending(converted, convertedTo){
+async function getTrending(){
 
     let response = await fetch('https://api.coingecko.com/api/v3/search/trending');
 
